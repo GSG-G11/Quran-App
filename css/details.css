@@ -140,6 +140,7 @@ nav .nav .form-search::after {
 --------------------------------------------------------------------*/
 .show-surah-section {
   padding: 30px 0;
+  margin-bottom: 50px;
 }
 .show-surah-section .show-surah-container .surah-box {
   text-align: center;
@@ -177,4 +178,13 @@ nav .nav .form-search::after {
 .show-surah-section .show-surah-container .surah-ayahs .ayah-english {
   font-size: 18px;
   color: #666;
+}
+
+.surah-audio audio {
+  width: 100%;
+  border-radius: none;
+  position: fixed;
+  bottom: 0;
+  background-color: #f1f3f4;
+  z-index: 2222;
 }
