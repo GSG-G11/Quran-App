@@ -57,11 +57,23 @@ const changeSurah = () =>{
     const allListChildren = [...surahsList.children];
     allListChildren.forEach(e => {
        e.onclick = function(){
-           surahContainer.innerHTML = '';
-           test = this.getAttribute('data-id');
-           //const surahId = this.getAttribute('data-id') ;
-           fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${test}`, createSurah)
-           //fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`, createAllSurahTest)
+        surahContainer.innerHTML = '';
+           const surahId = this.getAttribute('data-id') ;
+           
+           const playAudio = (data) => {
+            document.getElementById('audio').setAttribute('src', data.audio_files[surahId-1].audio_url);
+            //console.log(data.audio_files[0].audio_url)
+            }
+           
+                fetch("GET", `https://api.quran.com/api/v4/chapter_recitations/1`, playAudio)
+           if(transitionButton.classList.contains('active')){
+            //surahContainer.innerHTML = '';
+               fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`, createSurah);
+               fetch("GET", `https://api.quran.com/api/v3/chapters/${surahId}/verses?translations=21&language=en`, translateEveryAyah)
+           }else if(readingButton.classList.contains('active')){
+            //surahContainer.innerHTML = '';
+               fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${surahId}`, createAllSurahTest)
+           }
            surahsList.classList.remove('show');
         }
     })
@@ -72,6 +84,7 @@ const changeSurah = () =>{
 // Create Surah for Every Ayah
 const createSurah = (data) => {
     const allAyahs = data.verses;
+    //surahContainer.innerHTML = '';
         allAyahs.forEach((e) => {
                 const ayah = document.createElement('div');
                 ayah.className = 'surah-ayahs';
@@ -86,7 +99,6 @@ const createSurah = (data) => {
 
                 // const ayahEnglish = document.createElement('p');
                 // ayahEnglish.className = 'ayah-english';
-
                 ayah.append(ayahNumber, ayahArabic);
                 surahContainer.appendChild(ayah);
         })
@@ -104,22 +116,26 @@ const createSurah = (data) => {
         }
     // Create All Surah Text
     const createAllSurahTest = (data) => {
+        //surahContainer.innerHTML = '';
         const eachAyah = data.verses;
         const surahText = eachAyah.map(element => element.text_uthmani).join('*');
         const suarhTag = document.createElement('p');
         suarhTag.className = 'surah-box';
         suarhTag.appendChild(document.createTextNode(surahText));
         surahContainer.appendChild(suarhTag);
+        //changeSurah()
     }
+
     // When click on transition Button will show every ayah with transition
     const toggleActiveClass1 = () => {
         if(!transitionButton.classList.contains('active')){
             transitionButton.classList.add('active');
             readingButton.classList.remove('active');
+            fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createSurah) 
+            fetch("GET", `https://api.quran.com/api/v3/chapters/1/verses?translations=21&language=en`, translateEveryAyah)
             surahContainer.innerHTML = '';
-            fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createSurah)
-        }
     }
+}
     //When click on reading Button will show all Surah
     const toggleActiveClass2 = () => {
         if(!readingButton.classList.contains('active')){
@@ -130,6 +146,12 @@ const createSurah = (data) => {
         }
     }
 
+    const playAudio = (data) => {
+        document.getElementById('audio').setAttribute('src', data.audio_files[0].audio_url);
+        //console.log(data.audio_files[0].audio_url)
+    }
+       
+fetch("GET", `https://api.quran.com/api/v4/chapter_recitations/1`, playAudio)
 fetch("GET", `https://api.quran.com/api/v4/chapters?language=en`, selectSurahs)
 fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createSurah) 
 //fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createAllSurahTest)
