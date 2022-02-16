@@ -149,6 +149,11 @@ header .form-search::after {
   height: 20px;
   color: #ccc;
 }
+
+
+/* --------------------------------------------------
+   style body of surah chapter
+----------------------------------------------------*/
 #container-of-surah {
   flex: 100%;
   height: 50px;
@@ -192,6 +197,8 @@ header .form-search::after {
 }
 
 #content{
+  margin-top: 40px;
+  margin-bottom: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   grid-gap: 20px;
