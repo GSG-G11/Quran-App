@@ -16,6 +16,7 @@ const selectSurahs = (data) => {
     const allSurah = data.chapters;
     allSurah.forEach((e) => {
         const surahBox = document.createElement('a');
+        surahBox.href = `/details.html?id=${e.id}`
         surahBox.className = "surah-box";
         surahBox.setAttribute('data-id',e.id);
 
