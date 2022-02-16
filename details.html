@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css"> 
+    <link rel="stylesheet" href="css/details.css"> 
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav">
+                <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+                <div class="form-search">
+                    <input type="search" name="search" id="search" placeholder='Search "Hud"'>
+                </div>
+                <div class="mode-icons">
+                    <a href="#" id="light"><i class="fas fa-lightbulb"></i></a>
+                    <a href="#" id="night"><i class="fas fa-moon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="selection-section">
+        <div class="container">
+            <div class="selection-container">
+                <div class="select-surah">
+                    <div class="first-surah">
+                        <span class="en-name">Al-Fatihah</span>
+                        <span class="ar-name">الفاتحة</span>
+                    </div>
+                    <ul class="all-surahs-select"></ul>
+                </div>
+                <div class="reading-options">
+                    <span class="transition active">Transition</span>
+                    <span class="reading">Reading</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show-surah-section">
+        <div class="container">
+            <h3>بسم الله الرحمن الرحيم</h3>
+            <div class="show-surah-container">
+            </div>
+        </div>
+    </div>
+    <script src="js/details.js"></script>
+    <script src="js/dom.js"></script>
+</body>
+</html>
