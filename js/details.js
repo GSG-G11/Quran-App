@@ -149,8 +149,10 @@ const createSurah = (data) => {
         //console.log(data.audio_files[0].audio_url)
     }
        
+    const params = new URLSearchParams(window.location.search)
+    const id = params.get('id')
 fetch("GET", `https://api.quran.com/api/v4/chapter_recitations/1`, playAudio)
 fetch("GET", `https://api.quran.com/api/v4/chapters?language=en`, selectSurahs)
-fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createSurah) 
+fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=${id}`, createSurah) 
 //fetch("GET", `https://api.quran.com/api/v4/quran/verses/uthmani?chapter_number=1`, createAllSurahTest)
 fetch("GET", `https://api.quran.com/api/v3/chapters/1/verses?translations=21&language=en`, translateEveryAyah)
