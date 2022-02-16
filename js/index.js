@@ -31,6 +31,7 @@ function generatDiv () {
                 console.log(resultObj);
                 resultObj.chapters.forEach((ele)=>{
                     const newDiv = document.createElement("a");
+                    newDiv.href = "http://127.0.0.1:5501/details.html/2"
                     newDiv.id = "container-of-surah";
                     const newSpan = document.createElement("span");
                     newSpan.id = "surah-card-number";
@@ -65,3 +66,37 @@ function generatDiv () {
 }
 generatDiv ();
 
+
+
+
+
+
+
+
+
+
+
+
+// function generateEvent () {
+//     const url = `https://api.quran.com/api/v4/chapters?language=en`;
+//     const xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = ()=>{
+//         if(xhr.readyState === 4){
+//             if(xhr.status === 200){
+//                 const resultObj = JSON.parse(xhr.responseText);
+//                 console.log(resultObj);
+//                 resultObj.chapters.forEach((ele)=>{
+//                     newDiv.href = "http://127.0.0.1:5501/details.html"
+//                     newDiv.id = "container-of-surah";
+
+
+//                 })
+                
+//             }
+//         }
+//     }
+//     xhr.open("GET",url);
+//     xhr.send();
+// }
+
+// generateEvent ()
