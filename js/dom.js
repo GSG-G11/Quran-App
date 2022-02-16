@@ -2,8 +2,6 @@ const lightButton = document.getElementById('light');
 const nightButton = document.getElementById('night');
 const showSurahsList = document.querySelector('.first-surah');
 const surahList = document.querySelector('.all-surahs-select');
-// const arabicNameTitle = document.querySelector('.ar-name-title');
-// const englishNameTitle = document.querySelector('.en-name-title');
 
 const addEvent = (selector, event, callback) => {
     selector.addEventListener(event, callback);

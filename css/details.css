@@ -1,6 +1,11 @@
 nav .nav .form-search {
   position: relative;
 }
+@media (max-width: 575.98px) {
+  nav .nav .form-search {
+    order: 3;
+  }
+}
 nav .nav .form-search input[type="search"] {
   border: 1px solid #ccc;
   outline: none;
@@ -29,10 +34,21 @@ nav .nav .form-search::after {
   background-color: #00b894;
   padding: 8px;
 }
+@media (max-width: 575.98px) {
+  .selection-section {
+    margin-top: 50px;
+  }
+}
 .selection-section .selection-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media (max-width: 575.98px) {
+  .selection-section .selection-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 .selection-section .selection-container {
   display: flex;
@@ -80,6 +96,11 @@ nav .nav .form-search::after {
   height: 300px;
   overflow-y: scroll;
   display: none;
+}
+@media (max-width: 575.98px) {
+  .selection-section .selection-container .select-surah .all-surahs-select {
+    left: -50px;
+  }
 }
 .selection-section .selection-container .select-surah .all-surahs-select.show {
   display: block;
@@ -145,7 +166,7 @@ nav .nav .form-search::after {
 .show-surah-section .show-surah-container .surah-box {
   text-align: center;
   direction: rtl;
-  width: 450px;
+  max-width: 450px;
   line-height: 3;
   font-size: 22px;
   margin: 20px auto;
@@ -179,7 +200,6 @@ nav .nav .form-search::after {
   font-size: 18px;
   color: #666;
 }
-
 .surah-audio audio {
   width: 100%;
   border-radius: none;
