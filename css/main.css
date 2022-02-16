@@ -91,14 +91,29 @@ nav .nav {
   flex-wrap: nowrap;
   height: 80px;
 }
+@media (max-width: 575.98px) {
+  nav .nav {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+}
 nav .nav a img {
-  max-width: 100%;
   object-fit: cover;
   height: 70px;
+}
+@media (max-width: 575.98px) {
+  nav .nav a {
+    order: 1;
+  }
 }
 nav .nav .mode-icons {
   display: flex;
   gap: 5px;
+}
+@media (max-width: 575.98px) {
+  nav .nav .mode-icons {
+    order: 2;
+  }
 }
 nav .nav .mode-icons a {
   width: 40px;
@@ -139,6 +154,7 @@ header img {
   width: 100vw;
   height: calc(100vh - 70px);
   filter: brightness(0.7);
+  object-fit: cover;
 }
 header .form-search {
   position: absolute;
@@ -153,6 +169,11 @@ header .form-search input[type="search"] {
   padding: 14px;
   border-radius: 25px;
   position: relative;
+}
+@media (max-width: 575.98px) {
+  header .form-search input[type="search"] {
+    width: 300px;
+  }
 }
 header .form-search::after {
   content: "\f002";
@@ -180,7 +201,7 @@ header .form-search::after {
 .main-section-container .surah-box {
   justify-content: space-between;
   margin-bottom: 10px;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
   flex: 100%;
   background-color: #fbfbfb;
@@ -192,7 +213,7 @@ header .form-search::after {
   color: black;
 }
 .main-section-container .surah-box:hover {
-  box-shadow: 0px 0px 6px 0px #55efc4;
+  box-shadow: 0 2px 3px 0 #e1e1e4;
 }
 
 .main-section-container .surah-box .surah-box-info {

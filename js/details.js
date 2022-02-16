@@ -97,8 +97,6 @@ const createSurah = (data) => {
                 ayahArabic.className = 'ayah-arabic';
                 ayahArabic.append(document.createTextNode(e.text_uthmani));
 
-                // const ayahEnglish = document.createElement('p');
-                // ayahEnglish.className = 'ayah-english';
                 ayah.append(ayahNumber, ayahArabic);
                 surahContainer.appendChild(ayah);
         })
